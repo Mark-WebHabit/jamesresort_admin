@@ -1,0 +1,14 @@
+[
+  {
+    "name": "JOSEPH BOW",
+    "position": "MANAGER",
+    "shifts": [
+      {
+        "shift": "NIGHT - 8:00PM - 8:00AM",
+        "from": "Thu Jan 16 2025 13:42:40 GMT+0800",
+        "to": "Current"
+      }
+    ],
+    "current": "NIGHT - 8:00PM - 8:00AM"
+  }
+]
