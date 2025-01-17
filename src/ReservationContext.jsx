@@ -93,7 +93,6 @@ function ReservationContext({ children }) {
           .catch((error) => {
             console.error("Error adding notification:", error);
           });
-        cancelReservation();
       })
       .catch((error) => {
         console.error("Error saving reservation data:", error);

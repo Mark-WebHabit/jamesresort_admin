@@ -73,7 +73,6 @@ function Dashboard() {
         <Card image={"available"} text={`${available} available`} />
         <Card image={"checkin"} text={`${checkin} check-in`} />
         <Card image={"complaint"} text={`${complaints?.length} complaints`} />
-        <Card image={"pending"} text={`${pending} pending`} />
       </div>
     </div>
   );
