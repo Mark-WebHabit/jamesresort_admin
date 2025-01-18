@@ -9,7 +9,6 @@ function Dashboard() {
   const [booked, setBooked] = useState(0);
   const [available, setAvailable] = useState(0);
   const [checkin, setCheckin] = useState(0);
-  const [pending, setPending] = useState(0);
 
   useEffect(() => {
     if (rooms?.length <= 0) return;
@@ -36,11 +35,7 @@ function Dashboard() {
       (ppl) => ppl.status === "checked in"
     )?.length;
 
-    const pendingCount = reservations.filter(
-      (ppl) => ppl.status === "pending"
-    )?.length;
     setCheckin(checkinCount);
-    setPending(pendingCount);
   }, [reservations]);
 
   const Card = ({ image, text }) => {
@@ -72,7 +67,12 @@ function Dashboard() {
         <Card image={"booked"} text={`${booked} booked`} />
         <Card image={"available"} text={`${available} available`} />
         <Card image={"checkin"} text={`${checkin} check-in`} />
-        <Card image={"complaint"} text={`${complaints?.length} complaints`} />
+        <Card
+          image={"complaint"}
+          text={`${
+            complaints?.filter((dt) => dt.status == "pending")?.length
+          } complaints`}
+        />
       </div>
     </div>
   );

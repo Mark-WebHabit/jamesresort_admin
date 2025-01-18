@@ -86,6 +86,11 @@ function RoomRow({ room, filterDate }) {
     if (!matchedReservation) return;
     if (matchedReservation.status != "checked in") return;
 
+    if (matchedReservation.totalFee > 0)
+      return alert(
+        `This guest still have Php ${matchedReservation.totalFee}.00 remaining balance`
+      );
+
     const confirmCheckout = window.confirm(
       "Are you sure you want to check out?"
     );

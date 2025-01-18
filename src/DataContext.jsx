@@ -37,6 +37,7 @@ function DataContext({ children }) {
 
     onValue(complaintsRef, (snapshot) => {
       const data = snapshot.val();
+
       setComplaints(formatDataWithId(data));
     });
 
