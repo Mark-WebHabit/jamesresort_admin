@@ -4,7 +4,7 @@ import { ResortContext } from "../DataContext";
 import { getMonthDateYear } from "../utilities/date";
 
 function Dashboard() {
-  const { rooms, staffs, complaints, reservations } = useContext(ResortContext);
+  const { rooms, staffs, reviews, reservations } = useContext(ResortContext);
 
   const [booked, setBooked] = useState(0);
   const [available, setAvailable] = useState(0);
@@ -67,12 +67,7 @@ function Dashboard() {
         <Card image={"booked"} text={`${booked} booked`} />
         <Card image={"available"} text={`${available} available`} />
         <Card image={"checkin"} text={`${checkin} check-in`} />
-        <Card
-          image={"complaint"}
-          text={`${
-            complaints?.filter((dt) => dt.status == "pending")?.length
-          } complaints`}
-        />
+        <Card image={"complaint"} text={`${reviews?.length} Reviews`} />
       </div>
     </div>
   );

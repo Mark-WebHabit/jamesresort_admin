@@ -57,16 +57,17 @@ function ReservationContext({ children }) {
       totalFee: total,
       reference,
       addAmenities: {
-        bed: beds,
+        beds: beds,
         pillow: pillows,
         comforter: comforter,
       },
-      ammenitiesFee: {
-        bed: bedsFee,
-        pillow: pillowsFee,
+      amenitiesFee: {
+        beds: bedsFee,
+        pillows: pillowsFee,
         comforter: comforterFee,
       },
       dateBooked: new Date().toString(),
+      mode: "walkin",
     };
 
     const notif = {

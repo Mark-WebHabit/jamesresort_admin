@@ -2,13 +2,14 @@ import { useEffect, useState, createContext } from "react";
 import Proptypes from "prop-types";
 import { ref, onValue } from "firebase/database";
 import { db } from "../firebase";
+import { formatDataWithId } from "./utilities/extras";
 
 const ResortContext = createContext();
 
 function DataContext({ children }) {
   const [rooms, setRooms] = useState([]);
   const [staffs, setStaffs] = useState([]);
-  const [complaints, setComplaints] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [reservations, setReservations] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const shift = ["DAY - 8:00AM - 8:00PM", "NIGHT - 8:00PM - 8:00AM"];
@@ -16,14 +17,9 @@ function DataContext({ children }) {
   useEffect(() => {
     const roomsRef = ref(db, "rooms");
     const staffsRef = ref(db, "staffs");
-    const complaintsRef = ref(db, "complaints");
+    const reviewsRef = ref(db, "reviews");
     const reservationsRef = ref(db, "reservations");
     const notifcationsRef = ref(db, "notifications");
-    const formatDataWithId = (data) => {
-      return data
-        ? Object.entries(data).map(([uid, item]) => ({ ...item, id: uid }))
-        : [];
-    };
 
     onValue(roomsRef, (snapshot) => {
       const data = snapshot.val();
@@ -35,10 +31,10 @@ function DataContext({ children }) {
       setStaffs(formatDataWithId(data));
     });
 
-    onValue(complaintsRef, (snapshot) => {
+    onValue(reviewsRef, (snapshot) => {
       const data = snapshot.val();
 
-      setComplaints(formatDataWithId(data));
+      setReviews(formatDataWithId(data));
     });
 
     onValue(reservationsRef, (snapshot) => {
@@ -54,7 +50,7 @@ function DataContext({ children }) {
 
   return (
     <ResortContext.Provider
-      value={{ rooms, staffs, complaints, reservations, shift, notifications }}
+      value={{ rooms, staffs, reviews, reservations, shift, notifications }}
     >
       {children}
     </ResortContext.Provider>

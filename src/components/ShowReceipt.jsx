@@ -23,9 +23,11 @@ function ShowReceipt() {
   const pillowFess = ammenities.pillow * pillows;
   const comforterFee = ammenities.comforter * comforter;
   const guestFee =
-    dayTour == "true"
+    dayTour === true
       ? numberOfGuest * tourFeee.day
       : numberOfGuest * tourFeee.overnight;
+
+  console.log(dayTour, numberOfGuest, tourFeee);
 
   const subTotal =
     bedFee + pillowFess + comforterFee + guestFee + chosenRoom.price;

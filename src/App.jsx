@@ -13,6 +13,10 @@ import Rooms from "./Views/Rooms";
 import Staff from "./Views/Staff";
 import Complaints from "./Views/Complaints";
 import NotificationsList from "./Views/NotificationList";
+import Revenue from "./Views/Revenue";
+import Statistics from "./Views/Statistics";
+import Transactions from "./Views/Transactions";
+
 function App() {
   return (
     <DataContext>
@@ -26,8 +30,11 @@ function App() {
                 <Route index element={<Dashboard />} />
                 <Route path="rooms" element={<Rooms />} />
                 <Route path="staff" element={<Staff />} />
-                <Route path="complaints" element={<Complaints />} />
+                <Route path="reviews" element={<Complaints />} />
                 <Route path="notifs" element={<NotificationsList />} />
+                <Route path="revenue" element={<Revenue />} />
+                <Route path="statistics" element={<Statistics />} />
+                <Route path="transaction" element={<Transactions />} />
               </Route>
             </Routes>
           </Router>

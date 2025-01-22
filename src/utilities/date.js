@@ -13,6 +13,21 @@ export const months = [
   "December",
 ];
 
+export const monthsShort = [
+  { January: "Jan" },
+  { February: "Feb" },
+  { March: "Mar" },
+  { April: "Apr" },
+  { May: "May" },
+  { June: "Jun" },
+  { July: "Jul" },
+  { August: "Aug" },
+  { September: "Sep" },
+  { October: "Oct" },
+  { November: "Nov" },
+  { December: "Dec" },
+];
+
 export function convertDateStandard(dateString) {
   // Parse the date string into a Date object
   const date = new Date(dateString);
@@ -97,3 +112,31 @@ export const getTimeInAMPM = (dateString) => {
 
   return `${hours}:${strMinutes} ${ampm}`;
 };
+
+export function getCurrentMonthAndYear() {
+  // Create a new Date object
+  let currentDate = new Date();
+
+  // Get the current month (0-11, where 0 is January and 11 is December)
+  let month = currentDate.getMonth(); // Adding 1 to make it 1-12
+
+  // Get the current year
+  let year = currentDate.getFullYear();
+
+  return {
+    month: month,
+    year: year,
+  };
+}
+
+export function getMonthYear(date) {
+  let dt = new Date(date);
+
+  let month = dt.getMonth();
+  let year = dt.getFullYear();
+
+  return {
+    month,
+    year,
+  };
+}

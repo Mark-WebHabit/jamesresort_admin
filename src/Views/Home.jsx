@@ -27,11 +27,13 @@ function Home() {
             <NavLinks text="Dashboard" path="/home" />
             <NavLinks text="Rooms" path="/home/rooms" />
             <NavLinks text="Staff" path="/home/staff" />
-            <NavLinks text="Complaints" path="/home/complaints" />
             <NavLinks text="Notification" path="/home/notifs" />
-          </ul>
+            <NavLinks text="Reviews" path="/home/reviews" />
 
-          <div className="mt-56">
+            <p className="text-white text-xl w-full block mb-4">Reports</p>
+            <NavLinks text="Transactions" path="/home/transaction" />
+            <NavLinks text="Revenue" path="/home/revenue" />
+            <NavLinks text="Statistics" path="/home/statistics" />
             <li className="text-white text-xl text-center w-full block mb-4">
               <p
                 className="px-8 py-2 font-bold text-white rounded-md w-full block ease-in-out
@@ -44,7 +46,7 @@ function Home() {
                 Logout
               </p>
             </li>
-          </div>
+          </ul>
         </div>
 
         <div className="flex-1 flex flex-col">
